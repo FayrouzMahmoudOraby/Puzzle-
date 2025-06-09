@@ -8,7 +8,7 @@ public class PuzzleSpawner : MonoBehaviour
     public GameObject blueCubePrefab;
 
     public GameObject slotPrefab; // White slot
-    public int numberOfCubes = 3;
+    public int numberOfCubes = 5;
 
     private Vector2 cubeXRange = new Vector2(-4.5f, -1f);
     private Vector2 slotXRange = new Vector2(1f, 4.5f);
@@ -33,8 +33,8 @@ public class PuzzleSpawner : MonoBehaviour
     void SpawnSlots()
     {
         string[] tags = new string[] { "Red", "Green", "Blue" };
-        float spacing = 3f; // space between slots
-        float startZ = -spacing; // center the slots across the Z axis
+        float spacing = 3f; 
+        float startZ = -spacing; 
 
         for (int i = 0; i < tags.Length; i++)
         {
@@ -46,10 +46,10 @@ public class PuzzleSpawner : MonoBehaviour
 
             GameObject slot = Instantiate(slotPrefab, pos, Quaternion.identity);
             
-            // Assign the Unity GameObject tag to slot
+            
             slot.tag = tags[i];
 
-            // Setup detector
+            
             SlotDetector detector = slot.GetComponent<SlotDetector>();
             if (detector != null)
                 detector.acceptedTag = tags[i];
